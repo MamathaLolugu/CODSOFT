@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mamatha's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container about-content">
+      <img src="myphoto.jpg" alt="My Photo" class="profile-img">
+      <div>
+        <h1>ABOUT ME</h1>
+        <p>I'm <strong>MAMATHA LOLUGU</strong>,</p>
+        <p>I'm a dedicated and results-driven full stack developer with hands-on experience in building dynamic, responsive web applications using modern technologies. I specialize in crafting clean, maintainable code and user-centric designs. With strong proficiency in <strong>HTML, CSS, JavaScript, Python, Django, and SQL</strong>, I’ve successfully completed projects which was given to me.</p>
+        <p>I have a proven track record of solving real-world problems through code, optimizing performance, and collaborating in fast-paced team environments. My passion lies in turning ideas into functional, visually compelling digital experiences. I continuously stay updated with the latest trends to ensure I bring cutting-edge solutions to the table.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>Django</li>
+        
+      </ul>
+      <p>I have basic knowledge on the skills I have mentioned above and also I have completed several projects using those languages which helped me to develop my skills beyond my knowledge.</p>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <p>I have completed two projects by using HTML, JS, CSS, Django:</p>
+      <p><strong>MEAL PREORDER PLATFORM</strong><br>
+      Meal preorder platform is a user-friendly website created using HTML, CSS, JS for ordering meals ahead of time. This website contains variety of options which allow users to explore menu, order, billing to place order.</p>
+      <div class="project">
+          <h3>🍽️ Meal Preorder Platform</h3>
+          <p>please zoom the image for clear view...</p>
+          <div class="project-image">
+              <img src="projet.jpg" alt="project" class="project-img"> 
+          </div>
+      </div>
+      <p><strong>BLOCKCHAIN-BASED SUPPLY CHAIN TRACKING WITH DJANGO</strong><br>
+      This project, "Blockchain-Based Supply Chain Tracking System using Django", aims to build a web-based platform created by using Django, HTML, CSS, Bootstrap, SQLite that integrates blockchain technology with Django to deliver a transparent and efficient tracking system. The system allows users to manage shipments, products, and suppliers while maintaining a secure digital trail of every transaction on the blockchain.</p>
+       <div class="project">
+          <h3>BLOCKCHAIN-BASED SUPPLY CHAIN</h3>
+          <p>please zoom the image for clear view...</p>
+          <div class="project-image1">
+              <img src="django.jpg" alt="project" class="project-img1"> 
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume" class="section">
+    <div class="container">
+      <h2>Resume</h2>
+      <a href="#" class="btn" id="downloadResume">Download Resume</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>Email: mamathalolugu@gmail.com.com</p>
+      <p>LinkedIn: linkedin.com/in/Mamatha Lolugu</p>
+    </div>
+  </section>
+
+  <script>
+    const { jsPDF } = window.jspdf;
+
+    document.getElementById("downloadResume").addEventListener("click", function(event) {
+      event.preventDefault();
+
+      const doc = new jsPDF();
+
+      // Title
+      doc.setFontSize(22);
+      doc.text("Mamatha Lolugu", 10, 20);
+      doc.setFontSize(16);
+      doc.text("Full Stack Developer", 10, 30);
+
+      // About Me
+      doc.setFontSize(14);
+      doc.text("About Me:", 10, 45);
+      doc.setFontSize(11);
+      const aboutText = `I'm MAMATHA LOLUGU,
+
+I'm a dedicated and results-driven full stack developer with hands-on experience in building dynamic, responsive web applications using modern technologies. I specialize in crafting clean, maintainable code and user-centric designs. With strong proficiency in HTML, CSS, JavaScript, Python, Django, and SQL, I’ve successfully completed projects which was given to me.
+
+I have a proven track record of solving real-world problems through code, optimizing performance, and collaborating in fast-paced team environments. My passion lies in turning ideas into functional, visually compelling digital experiences. I continuously stay updated with the latest trends to ensure I bring cutting-edge solutions to the table.`;
+      doc.text(doc.splitTextToSize(aboutText, 180), 10, 52);
+
+      // Skills
+      doc.setFontSize(14);
+      doc.text("Skills:", 10, 95);
+      doc.setFontSize(11);
+      const skills = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "SQL",
+        "Python",
+        "Django",
+        "Data structures"
+      ];
+      skills.forEach((skill, i) => {
+        doc.text(`- ${skill}`, 15, 102 + i * 7);
+      });
+
+      // Projects
+      const projectsY = 102 + skills.length * 7 + 10;
+      doc.setFontSize(14);
+      doc.text("Projects:", 10, projectsY);
+      doc.setFontSize(11);
+      const projects = [
+        "Meal Preorder Platform: A user-friendly website created using HTML, CSS, JS for ordering meals ahead of time. This website contains variety of options which allow users to explore menu, order, billing to place order.",
+        "Blockchain-Based Supply Chain Tracking System using Django: A web-based platform created by using Django, HTML, CSS, Bootstrap, SQLite that integrates blockchain technology with Django to deliver a transparent and efficient tracking system. The system allows users to manage shipments, products, and suppliers while maintaining a secure digital trail of every transaction on the blockchain."
+      ];
+      projects.forEach((proj, i) => {
+        const yPos = projectsY + 7 + i * 14;
+        const lines = doc.splitTextToSize(proj, 180);
+        doc.text(`${i + 1}. ${lines[0]}`, 15, yPos);
+        for (let j = 1; j < lines.length; j++) {
+          doc.text(lines[j], 20, yPos + j * 7);
+        }
+      });
+
+      // Contact
+      const contactY = projectsY + 7 + projects.length * 14 + 20;
+      doc.setFontSize(14);
+      doc.text("Contact:", 10, contactY);
+      doc.setFontSize(11);
+      doc.text("Email: mamathalolugu@gmail.com", 15, contactY + 7);
+      doc.text("LinkedIn: linkedin.com/in/Mamatha Lolugu", 15, contactY + 14);
+
+      // Save PDF
+      doc.save("Mamatha_Lolugu_Resume.pdf");
+    });
+  </script>
+
+</body>
+</html>
