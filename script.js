@@ -1,11 +1,21 @@
-function toggleAbout() {
-  const extra = document.querySelector('.extra-content');
-  const btn = document.querySelector('.read-more-btn');
-  if (extra.style.display === "block") {
-    extra.style.display = "none";
-    btn.textContent = "Read More";
+function appendValue(val) {
+  const display = document.getElementById("display");
+  if (display.value === "0") {
+    display.value = val;
   } else {
-    extra.style.display = "block";
-    btn.textContent = "Read Less";
+    display.value += val;
   }
+}
+
+function calculate() {
+  try {
+    const display = document.getElementById("display");
+    display.value = eval(display.value);
+  } catch {
+    display.value = "Error";
+  }
+}
+
+function clearDisplay() {
+  document.getElementById("display").value = "0";
 }
